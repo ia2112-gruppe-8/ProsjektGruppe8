@@ -29,12 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.txtBatteryStatus = new System.Windows.Forms.TextBox();
+            this.tmrUpdateBattery = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // txtBatteryStatus
+            // 
+            this.txtBatteryStatus.Location = new System.Drawing.Point(593, 418);
+            this.txtBatteryStatus.Name = "txtBatteryStatus";
+            this.txtBatteryStatus.Size = new System.Drawing.Size(195, 20);
+            this.txtBatteryStatus.TabIndex = 0;
+            // 
+            // tmrUpdateBattery
+            // 
+            this.tmrUpdateBattery.Enabled = true;
+            this.tmrUpdateBattery.Tick += new System.EventHandler(this.tmrUpdateBattery_Tick);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtBatteryStatus);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtBatteryStatus;
+        private System.Windows.Forms.Timer tmrUpdateBattery;
     }
 }
 
