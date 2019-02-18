@@ -15,19 +15,12 @@ namespace ProsjektGruppe8
         public Form1()
         {
             InitializeComponent();
-            txtBatteryStatus.ForeColor = Color.Black;
+            indicateBattery(txtBatteryStatus);
         }
 
         private void tmrUpdateBattery_Tick(object sender, EventArgs e)
         {
-            int batteryPercent = Convert.ToInt32(SystemInformation.PowerStatus.BatteryLifePercent * 100);
-            string chargingStatus = getChargingStatus();
-
-            txtBatteryStatus.Text = $"{batteryPercent}% {chargingStatus}";
-
-            if (batteryPercent <= 25) txtBatteryStatus.BackColor = Color.Red;
-            else txtBatteryStatus.BackColor = Color.Green;
-  
+            indicateBattery(txtBatteryStatus);
         }
         
         string getChargingStatus()
@@ -47,6 +40,20 @@ namespace ProsjektGruppe8
                     break;
             }
             return chargingStatus;
+        }
+        void indicateBattery(TextBox box)
+        {
+            int batteryPercent = Convert.ToInt32(SystemInformation.PowerStatus.BatteryLifePercent * 100);
+            string chargingStatus = getChargingStatus();
+
+            box.Text = $"{batteryPercent}% {chargingStatus}";
+
+            if (batteryPercent <= 25)
+            {
+                box.BackColor = Color.Red;
+                box.ForeColor = Color.White;
+            }
+            else box.BackColor = Color.Green;
         }
     }
 }
