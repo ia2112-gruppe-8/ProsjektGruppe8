@@ -15,6 +15,7 @@ namespace ProsjektGruppe8
         public Form1()
         {
             InitializeComponent();
+            txtBatteryStatus.ForeColor = Color.Black;
         }
 
         private void tmrUpdateBattery_Tick(object sender, EventArgs e)
@@ -23,16 +24,12 @@ namespace ProsjektGruppe8
             string chargingStatus = getChargingStatus();
 
             txtBatteryStatus.Text = $"{batteryPercent}% {chargingStatus}";
-            if (batteryPercent <= 25)
-            {
-                txtBatteryStatus.BackColor = Color.Red;
 
-            }
-            else
-            {
-                txtBatteryStatus.BackColor = Color.Green;
-            }
+            if (batteryPercent <= 25) txtBatteryStatus.BackColor = Color.Red;
+            else txtBatteryStatus.BackColor = Color.Green;
+  
         }
+        
         string getChargingStatus()
         {
             string chargingStatus;
