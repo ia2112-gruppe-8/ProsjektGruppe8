@@ -40,6 +40,7 @@
             this.txtBatteryStatus.ReadOnly = true;
             this.txtBatteryStatus.Size = new System.Drawing.Size(195, 20);
             this.txtBatteryStatus.TabIndex = 0;
+            this.txtBatteryStatus.TabStop = false;
             this.txtBatteryStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tmrUpdateBattery
