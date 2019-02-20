@@ -46,7 +46,6 @@ namespace ProsjektGruppe8
 
                 text.BackColor = Color.Red;
                 text.ForeColor = Color.White;
-                MessageBox.Show("Batterinivå 25%", "Lav Batterispenning", MessageBoxButtons.OK);
             }
             else text.BackColor = Color.Green;
         }
