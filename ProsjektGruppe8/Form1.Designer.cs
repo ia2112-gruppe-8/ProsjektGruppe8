@@ -45,7 +45,7 @@
             // tmrUpdateBattery
             // 
             this.tmrUpdateBattery.Enabled = true;
-            this.tmrUpdateBattery.Interval = 60000;
+            this.tmrUpdateBattery.Interval = 500;
             this.tmrUpdateBattery.Tick += new System.EventHandler(this.tmrUpdateBattery_Tick);
             // 
             // Form1

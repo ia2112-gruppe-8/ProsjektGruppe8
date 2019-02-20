@@ -23,7 +23,7 @@ namespace ProsjektGruppe8
             indicateBattery(txtBatteryStatus);
         }
         
-        string getChargingStatus()
+        string getChargingStatus()//Test
         {
             string chargingStatus;
 
