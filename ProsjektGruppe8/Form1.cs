@@ -12,48 +12,17 @@ namespace ProsjektGruppe8
 {
     public partial class Form1 : Form
     {
+        BatteryStatus batt;
         public Form1()
         {
             InitializeComponent();
-            indicateBattery(txtBatteryStatus);
-        }
-
-        private void tmrUpdateBattery_Tick(object sender, EventArgs e)
-        {
-            indicateBattery(txtBatteryStatus);
+            batt = new BatteryStatus(txtBatteryStatus);
+            batt.indicateBattery();
         }
         
-        string getChargingStatus()//Test
+        private void tmrUpdateBattery_Tick(object sender, EventArgs e)
         {
-            string chargingStatus;
-
-            switch (SystemInformation.PowerStatus.PowerLineStatus)
-            {
-                case PowerLineStatus.Offline:
-                    chargingStatus = "Lader IKKE";
-                    break;
-                case PowerLineStatus.Online:
-                    chargingStatus = "Lader";
-                    break;
-                default:
-                    chargingStatus = "Ukjent";
-                    break;
-            }
-            return chargingStatus;
-        }
-        void indicateBattery(TextBox box)
-        {
-            int batteryPercent = Convert.ToInt32(SystemInformation.PowerStatus.BatteryLifePercent * 100);
-            string chargingStatus = getChargingStatus();
-
-            box.Text = $"{batteryPercent}% {chargingStatus}";
-
-            if (batteryPercent <= 25)
-            {
-                box.BackColor = Color.Red;
-                box.ForeColor = Color.White;
-            }
-            else box.BackColor = Color.Green;
+            batt.indicateBattery();
         }
     }
 }
