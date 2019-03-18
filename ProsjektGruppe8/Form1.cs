@@ -13,6 +13,7 @@ namespace ProsjektGruppe8
     public partial class Form1 : Form
     {
         BatteryStatus batt;
+        static dbInterface dbi = new dbInterface(); 
         public Form1()
         {
             InitializeComponent();
@@ -20,9 +21,10 @@ namespace ProsjektGruppe8
             batt.indicateBattery();
         }
         
-        private void tmrUpdateBattery_Tick(object sender, EventArgs e)
+        private void tmrUpdate_Tick(object sender, EventArgs e)
         {
             batt.indicateBattery();
+            //dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Kunder");
         }
     }
 }
