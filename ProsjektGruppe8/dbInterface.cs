@@ -38,6 +38,26 @@ namespace ProsjektGruppe8
             
 
         }
+        public void logTemp(int temp)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(conTest);
+                SqlCommand sql = new SqlCommand("dbo.insertTemp", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.Parameters.Add(new SqlParameter("@temp", temp));
+                sql.Parameters.Add(new SqlParameter("@dato", DateTime.Today.Date));
+                sql.Parameters.Add(new SqlParameter("@time", DateTime.Now));
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
         public List<string> getEmail()
         {
             List<string> email = new List<string>();

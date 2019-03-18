@@ -32,6 +32,9 @@
             this.txtBatteryStatus = new System.Windows.Forms.TextBox();
             this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
             this.dgvActiveAlarms = new System.Windows.Forms.DataGridView();
+            this.cboComPorts = new System.Windows.Forms.ComboBox();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +52,6 @@
             // 
             // tmrUpdate
             // 
-            this.tmrUpdate.Enabled = true;
             this.tmrUpdate.Interval = 500;
             this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
             // 
@@ -63,11 +65,42 @@
             this.dgvActiveAlarms.Size = new System.Drawing.Size(776, 210);
             this.dgvActiveAlarms.TabIndex = 1;
             // 
+            // cboComPorts
+            // 
+            this.cboComPorts.FormattingEnabled = true;
+            this.cboComPorts.Location = new System.Drawing.Point(586, 228);
+            this.cboComPorts.Name = "cboComPorts";
+            this.cboComPorts.Size = new System.Drawing.Size(121, 21);
+            this.cboComPorts.TabIndex = 2;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(713, 228);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 3;
+            this.btnConnect.Text = "Koble Til";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(242, 306);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 4;
+            this.btnTest.Text = "button1";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTest);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.cboComPorts);
             this.Controls.Add(this.dgvActiveAlarms);
             this.Controls.Add(this.txtBatteryStatus);
             this.Name = "Form1";
@@ -83,6 +116,9 @@
         private System.Windows.Forms.TextBox txtBatteryStatus;
         private System.Windows.Forms.Timer tmrUpdate;
         private System.Windows.Forms.DataGridView dgvActiveAlarms;
+        private System.Windows.Forms.ComboBox cboComPorts;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 
