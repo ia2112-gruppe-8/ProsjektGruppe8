@@ -20,6 +20,7 @@ namespace ProsjektGruppe8
             this.filename = filename;
             this.Text = filename;
             this.tmr = tmr;
+            txtInterval.Text = tmr.Interval.ToString();
         }
         void UpdateInterval()
         {

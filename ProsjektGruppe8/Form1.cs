@@ -30,14 +30,20 @@ namespace ProsjektGruppe8
         public Form1()
         {
             InitializeComponent();
-            
+
             batt = new BatteryStatus(txtBatteryStatus);
             batt.indicateBattery();
             com = new ArduinoCom(9600, cboComPorts);
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
             com.usbTimeout += new EventHandler(usbTimeout);
+            initTimers();
+
         }
-        
+        private void initTimers()
+        {
+            tmrLog.Interval = Convert.ToInt32(FileHandler.ReadFromFile(tmrLogFile));
+            tmrUpdate.Interval = Convert.ToInt32(FileHandler.ReadFromFile(tmrUpdateFile));
+        }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (com != null && com.IsOpen)
