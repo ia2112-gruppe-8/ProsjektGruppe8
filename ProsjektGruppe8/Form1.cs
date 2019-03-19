@@ -48,6 +48,7 @@ namespace ProsjektGruppe8
         private void usbTimeout(object kilde, EventArgs e)
         {
             tmrUpdate.Stop();
+            tmrLog.Stop();
         }
 
         private void tmrUpdate_Tick(object sender, EventArgs e)
@@ -59,13 +60,14 @@ namespace ProsjektGruppe8
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            
+            dbi.logTemp(Convert.ToInt32(values[0]));
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
             com.OpenCom();
             tmrUpdate.Start();
+            tmrLog.Start();
         }
 
         private void tmrLog_Tick(object sender, EventArgs e)
@@ -83,6 +85,12 @@ namespace ProsjektGruppe8
         {
             settingsForm settings = new settingsForm(tmrLogFile, tmrLog);
             settings.ShowDialog();
+        }
+
+        private void tsmShowChart_Click(object sender, EventArgs e)
+        {
+            chartForm chrt = new chartForm();
+            chrt.Show();
         }
     }
 }

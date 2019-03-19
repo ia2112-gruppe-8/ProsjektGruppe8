@@ -46,6 +46,7 @@
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 12);
+            this.chart1.MinimumSize = new System.Drawing.Size(776, 426);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -66,6 +67,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.chart1);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "chartForm";
             this.Text = "chartForm";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

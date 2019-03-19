@@ -40,6 +40,8 @@ namespace ProsjektGruppe8
             }
             else
             {
+                usbTimeout(this, new EventArgs());
+                MessageBox.Show("Porten er ikke åpen, er arduino plugget inn?", "Port Lukket");
                 for (int i = 1; i <= values.Length; i++)
                 {
                     values[i - 1] = null;

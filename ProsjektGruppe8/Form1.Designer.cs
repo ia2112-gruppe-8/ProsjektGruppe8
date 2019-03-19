@@ -37,11 +37,12 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSendLog = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReadInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
+            this.tsmShowChart = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -115,16 +116,17 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendLogToolStripMenuItem});
+            this.tsmSendLog,
+            this.tsmShowChart});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // sendLogToolStripMenuItem
+            // tsmSendLog
             // 
-            this.sendLogToolStripMenuItem.Name = "sendLogToolStripMenuItem";
-            this.sendLogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sendLogToolStripMenuItem.Text = "Send Log";
+            this.tsmSendLog.Name = "tsmSendLog";
+            this.tsmSendLog.Size = new System.Drawing.Size(180, 22);
+            this.tsmSendLog.Text = "Send Log";
             // 
             // instillingerToolStripMenuItem
             // 
@@ -138,14 +140,14 @@
             // tsmReadInterval
             // 
             this.tsmReadInterval.Name = "tsmReadInterval";
-            this.tsmReadInterval.Size = new System.Drawing.Size(180, 22);
+            this.tsmReadInterval.Size = new System.Drawing.Size(149, 22);
             this.tsmReadInterval.Text = "Leseintervall";
             this.tsmReadInterval.Click += new System.EventHandler(this.leseintervallToolStripMenuItem_Click);
             // 
             // tsmLogInterval
             // 
             this.tsmLogInterval.Name = "tsmLogInterval";
-            this.tsmLogInterval.Size = new System.Drawing.Size(180, 22);
+            this.tsmLogInterval.Size = new System.Drawing.Size(149, 22);
             this.tsmLogInterval.Text = "Loggeintervall";
             this.tsmLogInterval.Click += new System.EventHandler(this.tsmLogInterval_Click);
             // 
@@ -153,6 +155,13 @@
             // 
             this.tmrLog.Interval = 3600000;
             this.tmrLog.Tick += new System.EventHandler(this.tmrLog_Tick);
+            // 
+            // tsmShowChart
+            // 
+            this.tsmShowChart.Name = "tsmShowChart";
+            this.tsmShowChart.Size = new System.Drawing.Size(180, 22);
+            this.tsmShowChart.Text = "Vis Chart";
+            this.tsmShowChart.Click += new System.EventHandler(this.tsmShowChart_Click);
             // 
             // Form1
             // 
@@ -186,11 +195,12 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sendLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmSendLog;
         private System.Windows.Forms.ToolStripMenuItem instillingerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmReadInterval;
         private System.Windows.Forms.ToolStripMenuItem tsmLogInterval;
         private System.Windows.Forms.Timer tmrLog;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowChart;
     }
 }
 

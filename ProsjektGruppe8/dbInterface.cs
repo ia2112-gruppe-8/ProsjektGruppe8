@@ -7,21 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ProsjektGruppe8
 {
     class dbInterface
     {
         string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
+        SqlConnection con;
         public dbInterface()
         {
-
+            con = new SqlConnection(conTest);
         }
         public void viewInDataGrid(DataGridView gridView, string query)
         {
             try
             {
-                SqlConnection con = new SqlConnection(conTest);
                 SqlDataAdapter sda;
                 DataTable dt;
                 con.Open();
@@ -42,13 +43,12 @@ namespace ProsjektGruppe8
         {
             try
             {
-                SqlConnection con = new SqlConnection(conTest);
+                
                 SqlCommand sql = new SqlCommand("dbo.insertTemp", con);
                 sql.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 sql.Parameters.Add(new SqlParameter("@temp", temp));
-                sql.Parameters.Add(new SqlParameter("@dato", DateTime.Today.Date));
-                sql.Parameters.Add(new SqlParameter("@time", DateTime.Now));
+                sql.Parameters.Add(new SqlParameter("@dato", DateTime.Now));
                 sql.ExecuteNonQuery();
                 con.Close();
             }
@@ -58,13 +58,39 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
+        static public void LoadTempValuesInChart(Chart chart)
+        {
+            DateTime valueX;
+            int valueY;
+            string query = "SELECT * FROM Temperaturmålinger ORDER BY dato ASC";
+            string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
+            try
+            {
+                SqlConnection con = new SqlConnection(conTest);
+                SqlCommand sql = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader dr = sql.ExecuteReader();
+                while (dr.Read() == true)
+                {
+                    valueX = Convert.ToDateTime(dr[1]);
+                    valueY = Convert.ToInt32(dr[0]);
+                    chart.Series["Temperatur"].Points.AddXY(valueX, valueY);
+
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
         public List<string> getEmail()
         {
             List<string> email = new List<string>();
             try
             {
-
-                SqlConnection con = new SqlConnection(conTest);
                 string query = "SELECT email FROM Kunder";
                 SqlCommand sql = new SqlCommand(query, con);
                 con.Open();
@@ -75,12 +101,10 @@ namespace ProsjektGruppe8
                     email.Add(query);
                 }
                 con.Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
             return email;
         }
