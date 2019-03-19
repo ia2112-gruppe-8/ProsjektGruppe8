@@ -17,7 +17,7 @@ namespace ProsjektGruppe8
 
         public emailHandler()
         {
-            password = ReadFromFile("passord.txt");
+            password = FileHandler.ReadFromFile("passord.txt");
             //Recipient = recipient;
         }
         public void SendMail(string recipient)
@@ -35,14 +35,14 @@ namespace ProsjektGruppe8
 
             }
         }
-        private string ReadFromFile(string filename)
-        {
-            string text;
-            var filestream = new FileStream(filename, FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(filestream);
-            text = sr.ReadToEnd();
-            sr.Close();
-            return text;
-        }
+        //private string ReadFromFile(string filename)
+        //{
+        //    string text;
+        //    var filestream = new FileStream(filename, FileMode.Open, FileAccess.Read);
+        //    StreamReader sr = new StreamReader(filestream);
+        //    text = sr.ReadToEnd();
+        //    sr.Close();
+        //    return text;
+        //}
     }
 }
