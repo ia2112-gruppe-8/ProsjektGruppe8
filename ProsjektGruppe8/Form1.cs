@@ -59,7 +59,7 @@ namespace ProsjektGruppe8
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            mail.SendMail("jorgen.sneisen@lf-nett.no");
+            
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace ProsjektGruppe8
 
         private void tmrLog_Tick(object sender, EventArgs e)
         {
-
+            dbi.logTemp(Convert.ToInt32(values[0]));
         }
 
         private void leseintervallToolStripMenuItem_Click(object sender, EventArgs e)
