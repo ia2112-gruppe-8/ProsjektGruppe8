@@ -53,7 +53,8 @@ namespace ProsjektGruppe8
     {
         Temp,
         Movement,
+        Fire,
         Batteri,
-        Fire
+        Com
     }
 }

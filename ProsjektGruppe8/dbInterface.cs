@@ -147,12 +147,12 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public List<string> getEmail()
+        public List<string> getEmail(int alarmType)
         {
             List<string> email = new List<string>();
             try
             {
-                string query = "SELECT email FROM Kunder";
+                string query = $"SELECT [E-Mail] FROM Subscriptions Where Alarmtype = {alarmType}";
                 SqlCommand sql = new SqlCommand(query, con);
                 con.Open();
                 SqlDataReader dr = sql.ExecuteReader();
