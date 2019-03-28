@@ -32,11 +32,32 @@ namespace ProsjektGruppe8
                 sda.Fill(dt);
                 gridView.DataSource = dt;
                 con.Close();
+               
             }
             catch(Exception error)
             {
                 MessageBox.Show(error.Message);
             }
+        }
+        public DataTable activeAlarmsInDT(string query)
+        {
+            try
+            {
+                SqlDataAdapter sda;
+                DataTable dt;
+                con.Open();
+                sda = new SqlDataAdapter(query, con);
+                dt = new DataTable();
+                sda.Fill(dt);
+                con.Close();
+                return dt;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                return null;
+            }
+            
         }
         public void kvitterAlarmer()
         {

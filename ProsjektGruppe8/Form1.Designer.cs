@@ -46,6 +46,7 @@
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
             this.btnAcknowlege = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -195,11 +196,20 @@
             this.btnAcknowlege.UseVisualStyleBackColor = true;
             this.btnAcknowlege.Click += new System.EventHandler(this.btnAcknowlege_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(342, 306);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(282, 170);
+            this.textBox1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAcknowlege);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnConnect);
@@ -238,6 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
         private System.Windows.Forms.ToolStripMenuItem tsmDeleteSubscriber;
         private System.Windows.Forms.Button btnAcknowlege;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
