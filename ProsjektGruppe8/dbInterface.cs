@@ -11,7 +11,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ProsjektGruppe8
 {
-    class dbInterface
+    public class dbInterface
     {
         string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
         SqlConnection con;
@@ -49,6 +49,27 @@ namespace ProsjektGruppe8
                 con.Open();
                 sql.Parameters.Add(new SqlParameter("@temp", temp));
                 sql.Parameters.Add(new SqlParameter("@dato", DateTime.Now));
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void addSubscriber(string name, string email,int phoneNmbr,int alarmtype)
+        {
+            try
+            {
+
+                SqlCommand sql = new SqlCommand("dbo.AddSubscriber", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.Parameters.Add(new SqlParameter("@Navn", name));
+                sql.Parameters.Add(new SqlParameter("@Mail", email));
+                sql.Parameters.Add(new SqlParameter("@Nummer", phoneNmbr));
+                sql.Parameters.Add(new SqlParameter("@Alarmtype", alarmtype));
                 sql.ExecuteNonQuery();
                 con.Close();
             }

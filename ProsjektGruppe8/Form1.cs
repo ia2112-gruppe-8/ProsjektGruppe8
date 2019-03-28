@@ -98,5 +98,11 @@ namespace ProsjektGruppe8
             chartForm chrt = new chartForm();
             chrt.Show();
         }
+
+        private void tsmAddSubscriber_Click(object sender, EventArgs e)
+        {
+            AddSubscriberForm addSubscriber = new AddSubscriberForm(dbi);
+            addSubscriber.ShowDialog();
+        }
     }
 }

@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSubscriberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSubscriberForm.Designer.cs">
+      <DependentUpon>AddSubscriberForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlarmWatcher.cs" />
     <Compile Include="ArduinoCom.cs">
       <SubType>Component</SubType>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddSubscriberForm.resx">
+      <DependentUpon>AddSubscriberForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="chartForm.resx">
       <DependentUpon>chartForm.cs</DependentUpon>
     </EmbeddedResource>

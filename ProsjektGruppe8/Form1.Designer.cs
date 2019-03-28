@@ -38,11 +38,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSendLog = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmShowChart = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReadInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
-            this.tsmShowChart = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -117,7 +118,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmSendLog,
-            this.tsmShowChart});
+            this.tsmShowChart,
+            this.tsmAddSubscriber});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -127,6 +129,13 @@
             this.tsmSendLog.Name = "tsmSendLog";
             this.tsmSendLog.Size = new System.Drawing.Size(180, 22);
             this.tsmSendLog.Text = "Send Log";
+            // 
+            // tsmShowChart
+            // 
+            this.tsmShowChart.Name = "tsmShowChart";
+            this.tsmShowChart.Size = new System.Drawing.Size(180, 22);
+            this.tsmShowChart.Text = "Vis Chart";
+            this.tsmShowChart.Click += new System.EventHandler(this.tsmShowChart_Click);
             // 
             // instillingerToolStripMenuItem
             // 
@@ -156,12 +165,12 @@
             this.tmrLog.Interval = 3600000;
             this.tmrLog.Tick += new System.EventHandler(this.tmrLog_Tick);
             // 
-            // tsmShowChart
+            // tsmAddSubscriber
             // 
-            this.tsmShowChart.Name = "tsmShowChart";
-            this.tsmShowChart.Size = new System.Drawing.Size(180, 22);
-            this.tsmShowChart.Text = "Vis Chart";
-            this.tsmShowChart.Click += new System.EventHandler(this.tsmShowChart_Click);
+            this.tsmAddSubscriber.Name = "tsmAddSubscriber";
+            this.tsmAddSubscriber.Size = new System.Drawing.Size(180, 22);
+            this.tsmAddSubscriber.Text = "Legg til Abbonent";
+            this.tsmAddSubscriber.Click += new System.EventHandler(this.tsmAddSubscriber_Click);
             // 
             // Form1
             // 
@@ -201,6 +210,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmLogInterval;
         private System.Windows.Forms.Timer tmrLog;
         private System.Windows.Forms.ToolStripMenuItem tsmShowChart;
+        private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
     }
 }
 
