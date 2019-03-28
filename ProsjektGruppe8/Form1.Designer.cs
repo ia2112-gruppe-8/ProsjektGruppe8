@@ -45,6 +45,7 @@
             this.tsmReadInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
+            this.btnAcknowlege = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             // txtBatteryStatus
             // 
             this.txtBatteryStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBatteryStatus.Location = new System.Drawing.Point(593, 418);
+            this.txtBatteryStatus.Location = new System.Drawing.Point(627, 479);
             this.txtBatteryStatus.MaximumSize = new System.Drawing.Size(195, 20);
             this.txtBatteryStatus.Name = "txtBatteryStatus";
             this.txtBatteryStatus.ReadOnly = true;
@@ -74,20 +75,22 @@
             this.dgvActiveAlarms.Location = new System.Drawing.Point(12, 41);
             this.dgvActiveAlarms.Name = "dgvActiveAlarms";
             this.dgvActiveAlarms.ReadOnly = true;
-            this.dgvActiveAlarms.Size = new System.Drawing.Size(776, 210);
+            this.dgvActiveAlarms.Size = new System.Drawing.Size(810, 210);
             this.dgvActiveAlarms.TabIndex = 1;
             // 
             // cboComPorts
             // 
+            this.cboComPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboComPorts.FormattingEnabled = true;
-            this.cboComPorts.Location = new System.Drawing.Point(586, 257);
+            this.cboComPorts.Location = new System.Drawing.Point(620, 257);
             this.cboComPorts.Name = "cboComPorts";
             this.cboComPorts.Size = new System.Drawing.Size(121, 21);
             this.cboComPorts.TabIndex = 2;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(713, 257);
+            this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConnect.Location = new System.Drawing.Point(747, 257);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 3;
@@ -112,7 +115,7 @@
             this.instillingerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(834, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -182,11 +185,22 @@
             this.tmrLog.Interval = 3600000;
             this.tmrLog.Tick += new System.EventHandler(this.tmrLog_Tick);
             // 
+            // btnAcknowlege
+            // 
+            this.btnAcknowlege.Location = new System.Drawing.Point(12, 255);
+            this.btnAcknowlege.Name = "btnAcknowlege";
+            this.btnAcknowlege.Size = new System.Drawing.Size(113, 23);
+            this.btnAcknowlege.TabIndex = 6;
+            this.btnAcknowlege.Text = "Kvitter Alarmer";
+            this.btnAcknowlege.UseVisualStyleBackColor = true;
+            this.btnAcknowlege.Click += new System.EventHandler(this.btnAcknowlege_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Controls.Add(this.btnAcknowlege);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.cboComPorts);
@@ -194,6 +208,7 @@
             this.Controls.Add(this.txtBatteryStatus);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(370, 405);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).EndInit();
@@ -222,6 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmShowChart;
         private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
         private System.Windows.Forms.ToolStripMenuItem tsmDeleteSubscriber;
+        private System.Windows.Forms.Button btnAcknowlege;
     }
 }
 

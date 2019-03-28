@@ -38,6 +38,22 @@ namespace ProsjektGruppe8
                 MessageBox.Show(error.Message);
             }
         }
+        public void kvitterAlarmer()
+        {
+            try
+            {
+                SqlCommand sql = new SqlCommand("dbo.kvitterAlarmer", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void logTemp(int temp)
         {
             try

@@ -40,6 +40,7 @@ namespace ProsjektGruppe8
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
             com.usbTimeout += new EventHandler(usbTimeout);
             temp.alarmTriggered += new EventHandler(tempTrigg);
+            fire.alarmTriggered += new EventHandler(fireTrigg);
             initTimers();
 
         }
@@ -66,12 +67,18 @@ namespace ProsjektGruppe8
             speak.Speak("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
             
         }
+        private void fireTrigg(object kilde, EventArgs e)
+        {
+            dbi.insertAlarms(((int)fire.Type), Convert.ToInt32(values[2]), true, fire.LowLimit, fire.HighLimit);
+            speak.Speak("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
+        }
 
         private void tmrUpdate_Tick(object sender, EventArgs e)
         {
             batt.indicateBattery();
             values = com.getValues();
-            dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC");
+            fire.updateAlarm(Convert.ToInt32(values[2]));
+            dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -130,6 +137,11 @@ namespace ProsjektGruppe8
         {
             deleteSubscriberForm form = new deleteSubscriberForm(dbi);
             form.ShowDialog();
+        }
+
+        private void btnAcknowlege_Click(object sender, EventArgs e)
+        {
+            dbi.kvitterAlarmer();
         }
     }
 }
