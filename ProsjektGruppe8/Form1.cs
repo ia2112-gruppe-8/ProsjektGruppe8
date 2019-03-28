@@ -90,15 +90,17 @@ namespace ProsjektGruppe8
             //{
             //    textBox1.AppendText(x[2].ToString() + "\r\n");
             //}
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                for (int j = 0; j < dt.Columns.Count; j++)
-                {
-                    textBox1.AppendText(dt.Rows[i-1][j-1].ToString() + "\t");
-                }
-                textBox1.AppendText("\r\n");
-            }
-            
+            pdfHandler handler = new pdfHandler(dt);
+            handler.CreateDocument(true);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{
+            //    for (int j = 0; j < dt.Columns.Count; j++)
+            //    {
+            //        textBox1.AppendText(dt.Rows[i - 1][j - 1].ToString() + "\t");
+            //    }
+            //    textBox1.AppendText("\r\n");
+            //}
+
         }
         private void AlarmMailHandler(AlarmType type)
         {
