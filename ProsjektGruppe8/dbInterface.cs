@@ -19,6 +19,7 @@ namespace ProsjektGruppe8
         {
             con = new SqlConnection(conTest);
         }
+
         public void viewInDataGrid(DataGridView gridView, string query)
         {
             try
@@ -36,8 +37,6 @@ namespace ProsjektGruppe8
             {
                 MessageBox.Show(error.Message);
             }
-            
-
         }
         public void logTemp(int temp)
         {
@@ -101,7 +100,8 @@ namespace ProsjektGruppe8
         {
             DateTime valueX;
             int valueY;
-            string query = "SELECT * FROM Temperaturmålinger ORDER BY dato ASC";
+            string tablename = "TempMålinger";
+            string query = $"SELECT * FROM {tablename} ORDER BY Tidsrom ASC";
             string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
             try
             {
@@ -111,8 +111,8 @@ namespace ProsjektGruppe8
                 SqlDataReader dr = sql.ExecuteReader();
                 while (dr.Read() == true)
                 {
-                    valueX = Convert.ToDateTime(dr[1]);
-                    valueY = Convert.ToInt32(dr[0]);
+                    valueX = Convert.ToDateTime(dr[0]);
+                    valueY = Convert.ToInt32(dr[1]);
                     chart.Series["Temperatur"].Points.AddXY(valueX, valueY);
 
                 }

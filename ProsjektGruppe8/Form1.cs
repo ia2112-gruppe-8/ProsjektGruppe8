@@ -66,7 +66,8 @@ namespace ProsjektGruppe8
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            dbi.logTemp(Convert.ToInt32(values[0]));
+            Random random = new Random();
+            dbi.logTemp(random.Next(-20,40));
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
