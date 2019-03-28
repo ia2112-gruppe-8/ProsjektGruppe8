@@ -17,7 +17,9 @@ namespace ProsjektGruppe8
         {
             InitializeComponent();
             dbi = db;
-
+            cboAlarmType.DropDownStyle = ComboBoxStyle.DropDown;
+            cboAlarmType.AutoCompleteMode = AutoCompleteMode.Append;
+            cboAlarmType.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
         private void btnAddSubscriber_Click(object sender, EventArgs e)
         {
