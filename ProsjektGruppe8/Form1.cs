@@ -69,17 +69,17 @@ namespace ProsjektGruppe8
 
         private void tmrUpdate_Tick(object sender, EventArgs e)
         {
-            //batt.indicateBattery();
-            
+            batt.indicateBattery();
             values = com.getValues();
-            
+            dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC");
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
             /*Random random = new Random();
             dbi.logTemp(random.Next(-20,40));*/
-            
+
+            dbi.insertAlarms(0, 70, true, temp.LowLimit, temp.HighLimit);
         }
         private void AlarmMailHandler(AlarmType type)
         {

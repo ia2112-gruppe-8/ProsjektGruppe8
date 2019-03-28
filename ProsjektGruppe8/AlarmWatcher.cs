@@ -8,7 +8,8 @@ namespace ProsjektGruppe8
 {
     class AlarmWatcher
     {
-        int LowLimit, HighLimit;
+        public int LowLimit { get; set; }
+        public int HighLimit { get; set; }
         private bool AlarmLastScan;
         bool AlarmBit, limitBit;
         public AlarmType Type { get; set; }

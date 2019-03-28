@@ -57,6 +57,29 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
+        public void insertAlarms(int type, int value, bool active, int lowLimit, int HighLimit)
+        {
+            try
+            {
+
+                SqlCommand sql = new SqlCommand("dbo.insertAlarms", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.Parameters.Add(new SqlParameter("@type", type));
+                sql.Parameters.Add(new SqlParameter("@time", DateTime.Now));
+                sql.Parameters.Add(new SqlParameter("@value", value));
+                sql.Parameters.Add(new SqlParameter("@active", active));
+                sql.Parameters.Add(new SqlParameter("@Llimit", lowLimit));
+                sql.Parameters.Add(new SqlParameter("@Hlimit", HighLimit));
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void addSubscriber(string name, string email,int phoneNmbr,int alarmtype)
         {
             try

@@ -39,12 +39,12 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSendLog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmShowChart = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReadInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
-            this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,7 @@
             this.dgvActiveAlarms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvActiveAlarms.Location = new System.Drawing.Point(12, 41);
             this.dgvActiveAlarms.Name = "dgvActiveAlarms";
+            this.dgvActiveAlarms.ReadOnly = true;
             this.dgvActiveAlarms.Size = new System.Drawing.Size(776, 210);
             this.dgvActiveAlarms.TabIndex = 1;
             // 
@@ -129,15 +130,29 @@
             // tsmSendLog
             // 
             this.tsmSendLog.Name = "tsmSendLog";
-            this.tsmSendLog.Size = new System.Drawing.Size(180, 22);
+            this.tsmSendLog.Size = new System.Drawing.Size(169, 22);
             this.tsmSendLog.Text = "Send Log";
             // 
             // tsmShowChart
             // 
             this.tsmShowChart.Name = "tsmShowChart";
-            this.tsmShowChart.Size = new System.Drawing.Size(180, 22);
+            this.tsmShowChart.Size = new System.Drawing.Size(169, 22);
             this.tsmShowChart.Text = "Vis Chart";
             this.tsmShowChart.Click += new System.EventHandler(this.tsmShowChart_Click);
+            // 
+            // tsmAddSubscriber
+            // 
+            this.tsmAddSubscriber.Name = "tsmAddSubscriber";
+            this.tsmAddSubscriber.Size = new System.Drawing.Size(169, 22);
+            this.tsmAddSubscriber.Text = "Legg til Abbonent";
+            this.tsmAddSubscriber.Click += new System.EventHandler(this.tsmAddSubscriber_Click);
+            // 
+            // tsmDeleteSubscriber
+            // 
+            this.tsmDeleteSubscriber.Name = "tsmDeleteSubscriber";
+            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(169, 22);
+            this.tsmDeleteSubscriber.Text = "Slett Abbonent";
+            this.tsmDeleteSubscriber.Click += new System.EventHandler(this.tsmDeleteSubscriber_Click);
             // 
             // instillingerToolStripMenuItem
             // 
@@ -166,20 +181,6 @@
             // 
             this.tmrLog.Interval = 3600000;
             this.tmrLog.Tick += new System.EventHandler(this.tmrLog_Tick);
-            // 
-            // tsmAddSubscriber
-            // 
-            this.tsmAddSubscriber.Name = "tsmAddSubscriber";
-            this.tsmAddSubscriber.Size = new System.Drawing.Size(180, 22);
-            this.tsmAddSubscriber.Text = "Legg til Abbonent";
-            this.tsmAddSubscriber.Click += new System.EventHandler(this.tsmAddSubscriber_Click);
-            // 
-            // tsmDeleteSubscriber
-            // 
-            this.tsmDeleteSubscriber.Name = "tsmDeleteSubscriber";
-            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(180, 22);
-            this.tsmDeleteSubscriber.Text = "Slett Abbonent";
-            this.tsmDeleteSubscriber.Click += new System.EventHandler(this.tsmDeleteSubscriber_Click);
             // 
             // Form1
             // 
