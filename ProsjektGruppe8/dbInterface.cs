@@ -79,6 +79,24 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
+        public void deleteSubscriber(string email)
+        {
+            try
+            {
+
+                SqlCommand sql = new SqlCommand("dbo.DeleteSubscriber", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.Parameters.Add(new SqlParameter("@Mail", email));
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
         static public void LoadTempValuesInChart(Chart chart)
         {
             DateTime valueX;
@@ -106,6 +124,28 @@ namespace ProsjektGruppe8
 
             }
 
+        }
+        public void namesToCombobox(ComboBox box)
+        {
+            try
+            {
+                string query = "SELECT [E-Mail] FROM Abonnenter";
+                SqlCommand sql = new SqlCommand(query, con);
+                con.Open();
+                SqlDataReader dr = sql.ExecuteReader();
+                while (dr.Read()==true)
+                {
+                    query = dr[0].ToString();
+                    box.Items.Add(query);
+                }
+                con.Close();
+                box.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
         public List<string> getEmail()
         {

@@ -65,6 +65,12 @@
     <Compile Include="chartForm.Designer.cs">
       <DependentUpon>chartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="deleteSubscriberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deleteSubscriberForm.Designer.cs">
+      <DependentUpon>deleteSubscriberForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="settingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="chartForm.resx">
       <DependentUpon>chartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deleteSubscriberForm.resx">
+      <DependentUpon>deleteSubscriberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settingsForm.resx">
       <DependentUpon>settingsForm.cs</DependentUpon>

@@ -104,5 +104,11 @@ namespace ProsjektGruppe8
             AddSubscriberForm addSubscriber = new AddSubscriberForm(dbi);
             addSubscriber.ShowDialog();
         }
+
+        private void tsmDeleteSubscriber_Click(object sender, EventArgs e)
+        {
+            deleteSubscriberForm form = new deleteSubscriberForm(dbi);
+            form.ShowDialog();
+        }
     }
 }

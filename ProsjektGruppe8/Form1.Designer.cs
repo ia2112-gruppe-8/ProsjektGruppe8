@@ -44,6 +44,7 @@
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
             this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +120,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmSendLog,
             this.tsmShowChart,
-            this.tsmAddSubscriber});
+            this.tsmAddSubscriber,
+            this.tsmDeleteSubscriber});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -172,6 +174,13 @@
             this.tsmAddSubscriber.Text = "Legg til Abbonent";
             this.tsmAddSubscriber.Click += new System.EventHandler(this.tsmAddSubscriber_Click);
             // 
+            // tsmDeleteSubscriber
+            // 
+            this.tsmDeleteSubscriber.Name = "tsmDeleteSubscriber";
+            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(180, 22);
+            this.tsmDeleteSubscriber.Text = "Slett Abbonent";
+            this.tsmDeleteSubscriber.Click += new System.EventHandler(this.tsmDeleteSubscriber_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +220,7 @@
         private System.Windows.Forms.Timer tmrLog;
         private System.Windows.Forms.ToolStripMenuItem tsmShowChart;
         private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
+        private System.Windows.Forms.ToolStripMenuItem tsmDeleteSubscriber;
     }
 }
 
