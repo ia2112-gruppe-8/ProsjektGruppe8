@@ -14,7 +14,7 @@ namespace ProsjektGruppe8
     public class dbInterface
     {
         string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
-        SqlConnection con;
+        private static SqlConnection con;
         public dbInterface()
         {
             con = new SqlConnection(conTest);
@@ -138,6 +138,25 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
+        public void createSubscription(string email, int alarmtype)
+        {
+            try
+            {
+
+                SqlCommand sql = new SqlCommand("dbo.createSubscription", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.Parameters.Add(new SqlParameter("@mail", email));
+                sql.Parameters.Add(new SqlParameter("@type", alarmtype));
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void deleteSubscriber(string email)
         {
             try
@@ -152,7 +171,7 @@ namespace ProsjektGruppe8
             }
             catch (Exception ex)
             {
-
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -165,7 +184,7 @@ namespace ProsjektGruppe8
             string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
             try
             {
-                SqlConnection con = new SqlConnection(conTest);
+                //SqlConnection con = new SqlConnection(conTest);
                 SqlCommand sql = new SqlCommand(query, con);
                 con.Open();
                 SqlDataReader dr = sql.ExecuteReader();
@@ -180,10 +199,11 @@ namespace ProsjektGruppe8
             }
             catch (Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
 
             }
-
+            
         }
         public void namesToCombobox(ComboBox box)
         {
@@ -203,7 +223,7 @@ namespace ProsjektGruppe8
             }
             catch (Exception ex)
             {
-
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
         }
@@ -225,6 +245,7 @@ namespace ProsjektGruppe8
             }
             catch (Exception ex)
             {
+                con.Close();
                 MessageBox.Show(ex.Message);
             }
             return email;

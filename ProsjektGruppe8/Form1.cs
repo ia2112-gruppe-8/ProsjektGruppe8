@@ -154,6 +154,10 @@ namespace ProsjektGruppe8
             pdfForm.ShowDialog();
         }
 
-        
+        private void tsmCreateSubscription_Click(object sender, EventArgs e)
+        {
+            createSubscriptionForm csf = new createSubscriptionForm(dbi);
+            csf.ShowDialog();
+        }
     }
 }
