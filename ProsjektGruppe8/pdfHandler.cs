@@ -14,6 +14,7 @@ namespace ProsjektGruppe8
 {
     class pdfHandler
     {
+        public string filename { get;private set; }
         DataTable dt;
         public pdfHandler(DataTable dataTable)
         {
@@ -59,11 +60,15 @@ namespace ProsjektGruppe8
             PdfDocumentRenderer renderer = new PdfDocumentRenderer(false);
             renderer.Document = doc;
             renderer.RenderDocument();
-            string filename = $"Alarmer{DateTime.Today.Day}_{DateTime.Today.TimeOfDay.Hours}.pdf";
+            filename = $"Alarmer{DateTime.Today.Day}_{DateTime.Today.TimeOfDay.Hours}.pdf";
             
             renderer.PdfDocument.Save(filename);
+            if (openDoc)
+            {
             Process.Start(filename);
-        }
 
+            }
+        }
+        
     }
 }

@@ -50,7 +50,7 @@ namespace ProsjektGruppe8
         }
 
     }
-    enum AlarmType
+    public enum AlarmType
     {
         Temp,
         Movement,

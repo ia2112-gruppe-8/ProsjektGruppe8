@@ -87,7 +87,8 @@ namespace ProsjektGruppe8
             dbi.logTemp(random.Next(-20,40));*/
             DataTable dt = dbi.activeAlarmsInDT("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
             pdfHandler handler = new pdfHandler(dt);
-            handler.CreateDocument(true);
+            handler.CreateDocument(false);
+            mail.SendMailAttatchment("jorgen.sneisen@lf-nett.no", "test", "testc", handler.filename);
             //AlarmType at = (AlarmType)1;
             //textBox1.Text = at.ToString();
         }
@@ -146,5 +147,13 @@ namespace ProsjektGruppe8
         {
             dbi.kvitterAlarmer();
         }
+
+        private void tsmCreatePdf_Click(object sender, EventArgs e)
+        {
+            xportPdfForm pdfForm = new xportPdfForm(dbi,mail);
+            pdfForm.ShowDialog();
+        }
+
+        
     }
 }

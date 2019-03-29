@@ -37,13 +37,14 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmSendLog = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmShowChart = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCreatePdf = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReadInterval = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLogInterval = new System.Windows.Forms.ToolStripMenuItem();
+            this.kunderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
             this.btnAcknowlege = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -113,7 +114,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.instillingerToolStripMenuItem});
+            this.instillingerToolStripMenuItem,
+            this.kunderToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(834, 24);
@@ -123,40 +125,25 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmSendLog,
             this.tsmShowChart,
-            this.tsmAddSubscriber,
-            this.tsmDeleteSubscriber});
+            this.tsmCreatePdf});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // tsmSendLog
-            // 
-            this.tsmSendLog.Name = "tsmSendLog";
-            this.tsmSendLog.Size = new System.Drawing.Size(169, 22);
-            this.tsmSendLog.Text = "Send Log";
-            // 
             // tsmShowChart
             // 
             this.tsmShowChart.Name = "tsmShowChart";
-            this.tsmShowChart.Size = new System.Drawing.Size(169, 22);
+            this.tsmShowChart.Size = new System.Drawing.Size(180, 22);
             this.tsmShowChart.Text = "Vis Chart";
             this.tsmShowChart.Click += new System.EventHandler(this.tsmShowChart_Click);
             // 
-            // tsmAddSubscriber
+            // tsmCreatePdf
             // 
-            this.tsmAddSubscriber.Name = "tsmAddSubscriber";
-            this.tsmAddSubscriber.Size = new System.Drawing.Size(169, 22);
-            this.tsmAddSubscriber.Text = "Legg til Abbonent";
-            this.tsmAddSubscriber.Click += new System.EventHandler(this.tsmAddSubscriber_Click);
-            // 
-            // tsmDeleteSubscriber
-            // 
-            this.tsmDeleteSubscriber.Name = "tsmDeleteSubscriber";
-            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(169, 22);
-            this.tsmDeleteSubscriber.Text = "Slett Abbonent";
-            this.tsmDeleteSubscriber.Click += new System.EventHandler(this.tsmDeleteSubscriber_Click);
+            this.tsmCreatePdf.Name = "tsmCreatePdf";
+            this.tsmCreatePdf.Size = new System.Drawing.Size(180, 22);
+            this.tsmCreatePdf.Text = "Rapport";
+            this.tsmCreatePdf.Click += new System.EventHandler(this.tsmCreatePdf_Click);
             // 
             // instillingerToolStripMenuItem
             // 
@@ -180,6 +167,27 @@
             this.tsmLogInterval.Size = new System.Drawing.Size(149, 22);
             this.tsmLogInterval.Text = "Loggeintervall";
             this.tsmLogInterval.Click += new System.EventHandler(this.tsmLogInterval_Click);
+            // 
+            // kunderToolStripMenuItem
+            // 
+            this.kunderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAddSubscriber,
+            this.tsmDeleteSubscriber});
+            this.kunderToolStripMenuItem.Name = "kunderToolStripMenuItem";
+            this.kunderToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.kunderToolStripMenuItem.Text = "Abbonenter";
+            // 
+            // tsmAddSubscriber
+            // 
+            this.tsmAddSubscriber.Name = "tsmAddSubscriber";
+            this.tsmAddSubscriber.Size = new System.Drawing.Size(180, 22);
+            this.tsmAddSubscriber.Text = "Legg til Abbonent";
+            // 
+            // tsmDeleteSubscriber
+            // 
+            this.tsmDeleteSubscriber.Name = "tsmDeleteSubscriber";
+            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(180, 22);
+            this.tsmDeleteSubscriber.Text = "Slett Abbonent";
             // 
             // tmrLog
             // 
@@ -239,16 +247,17 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmSendLog;
         private System.Windows.Forms.ToolStripMenuItem instillingerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmReadInterval;
         private System.Windows.Forms.ToolStripMenuItem tsmLogInterval;
         private System.Windows.Forms.Timer tmrLog;
         private System.Windows.Forms.ToolStripMenuItem tsmShowChart;
-        private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
-        private System.Windows.Forms.ToolStripMenuItem tsmDeleteSubscriber;
         private System.Windows.Forms.Button btnAcknowlege;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem tsmCreatePdf;
+        private System.Windows.Forms.ToolStripMenuItem kunderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
+        private System.Windows.Forms.ToolStripMenuItem tsmDeleteSubscriber;
     }
 }
 

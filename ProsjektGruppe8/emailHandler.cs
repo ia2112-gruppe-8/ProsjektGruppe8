@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProsjektGruppe8
 {
-    class emailHandler
+    public class emailHandler
     {
         private string password;
         string senderMail = "ia2112gruppe8@gmail.com";
@@ -42,6 +42,30 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
             
+        }
+        public void SendMailAttatchment(string recipient, string subject, string message, string filename)
+        {
+            try
+            {
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.UseDefaultCredentials = false;
+                    smtp.EnableSsl = true;
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.Credentials = new NetworkCredential(senderMail, password);
+                    // send the email
+                    MailMessage mail = new MailMessage(senderMail, recipient,subject,message);
+                    mail.Attachments.Add(new Attachment(filename));
+                    smtp.Send(mail);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         public void SendAlarmMail(string recipient, AlarmType type)
         {
