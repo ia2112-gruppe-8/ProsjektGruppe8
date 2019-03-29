@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProsjektGruppe8.AddSubscriberForm" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQABBAAACAAAACAAQQAAgAAAAAAAAAAEQ=</HashCode>
+      <FileName>AddSubscriberForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.AlarmWatcher">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <Members>
+      <Field Name="AlarmBit" Hidden="true" />
+      <Field Name="AlarmLastScan" Hidden="true" />
+      <Method Name="AlarmWatcher" Hidden="true" />
+      <Method Name="checkLimits" Hidden="true" />
+      <Field Name="limitBit" Hidden="true" />
+      <Method Name="sendAlarm" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAEAAAAAAAUAASACAAQAAACAAAAA=</HashCode>
+      <FileName>AlarmWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.ArduinoCom">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <Members>
+      <Method Name="ArduinoCom" Hidden="true" />
+      <Field Name="cbo" Hidden="true" />
+      <Method Name="LoadPortsInComboBox" Hidden="true" />
+      <Method Name="OpenCom" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAIAAAAAAAAAAiAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ArduinoCom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.BatteryStatus">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <Members>
+      <Method Name="BatteryStatus" Hidden="true" />
+      <Method Name="getChargingStatus" Hidden="true" />
+      <Field Name="text" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAAAAAAAEA=</HashCode>
+      <FileName>BatteryStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.chartForm" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAADAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>chartForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.createSubscriptionForm" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACAQABCAAACAAQACAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>createSubscriptionForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.dbInterface">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <Members>
+      <Method Name="activeAlarmsInDT" Hidden="true" />
+      <Method Name="addSubscriber" Hidden="true" />
+      <Field Name="con" Hidden="true" />
+      <Field Name="conTest" Hidden="true" />
+      <Method Name="createSubscription" Hidden="true" />
+      <Method Name="dbInterface" Hidden="true" />
+      <Method Name="deleteSubscriber" Hidden="true" />
+      <Method Name="getEmail" Hidden="true" />
+      <Method Name="insertAlarms" Hidden="true" />
+      <Method Name="kvitterAlarmer" Hidden="true" />
+      <Method Name="LoadTempValuesInChart" Hidden="true" />
+      <Method Name="namesToCombobox" Hidden="true" />
+      <Method Name="viewInDataGrid" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAgAAAAgABAAAAQAAAAGABAQAAAAAgAAIAAE=</HashCode>
+      <FileName>dbInterface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.deleteSubscriberForm" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQIBAAAACAAAACAAAAAAAAAAAAAAAAAQQ=</HashCode>
+      <FileName>deleteSubscriberForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.emailHandler">
+    <Position X="11" Y="3" Width="1.5" />
+    <Members>
+      <Method Name="emailHandler" Hidden="true" />
+      <Field Name="password" Hidden="true" />
+      <Method Name="SendAlarmMail" Hidden="true" />
+      <Field Name="senderMail" Hidden="true" />
+      <Method Name="SendMailAttatchment" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAgAAAAAAQAIAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>emailHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.FileHandler">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <Members>
+      <Method Name="FileHandler" Hidden="true" />
+      <Method Name="WriteIntervalToFile" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.Form1" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>1QFQAIAEACAUIAHgoAHgEWAGAIOFACCIFiIAAigAAME=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.pdfHandler">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <Members>
+      <Field Name="dt" Hidden="true" />
+      <Property Name="filename" Hidden="true" />
+      <Method Name="pdfHandler" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>pdfHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.Program" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.settingsForm" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAACCAABAAAACAIAACAgAAABAAAAAAAAIAAAA=</HashCode>
+      <FileName>settingsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.xportPdfForm" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAQAhAAAACBAQAiAAQAAQAAAAAAAIAAAAE=</HashCode>
+      <FileName>xportPdfForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProsjektGruppe8.Properties.Settings" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.IO.Ports.SerialPort" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Enum Name="ProsjektGruppe8.AlarmType">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAIAAAEEAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>AlarmWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
