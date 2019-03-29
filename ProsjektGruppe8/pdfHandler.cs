@@ -41,10 +41,19 @@ namespace ProsjektGruppe8
                 row = table.AddRow();
                 for (int j = 0; j < dt.Columns.Count; j++)
                 {
-                    row.Cells[j].AddParagraph(dt.Rows[i][j].ToString());      
+                    if (j == 0)
+                    {
+                        AlarmType at = (AlarmType)Convert.ToInt32(dt.Rows[i][j]);
+                        row.Cells[j].AddParagraph(at.ToString());
+                    }
+                    else
+                    {
+                    row.Cells[j].AddParagraph(dt.Rows[i][j].ToString());
+                    }
+                    
                 }
-                
             }
+
             PdfDocumentRenderer renderer = new PdfDocumentRenderer(false);
             renderer.Document = doc;
             renderer.RenderDocument();

@@ -86,21 +86,10 @@ namespace ProsjektGruppe8
             /*Random random = new Random();
             dbi.logTemp(random.Next(-20,40));*/
             DataTable dt = dbi.activeAlarmsInDT("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
-            //foreach (DataRow x in dt.Rows)
-            //{
-            //    textBox1.AppendText(x[2].ToString() + "\r\n");
-            //}
             pdfHandler handler = new pdfHandler(dt);
             handler.CreateDocument(true);
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            //{
-            //    for (int j = 0; j < dt.Columns.Count; j++)
-            //    {
-            //        textBox1.AppendText(dt.Rows[i - 1][j - 1].ToString() + "\t");
-            //    }
-            //    textBox1.AppendText("\r\n");
-            //}
-
+            //AlarmType at = (AlarmType)1;
+            //textBox1.Text = at.ToString();
         }
         private void AlarmMailHandler(AlarmType type)
         {
