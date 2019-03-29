@@ -76,10 +76,10 @@ namespace ProsjektGruppe8
                     melding = "Du har en alarm på temperatur, sjekk systemet ASAP";
                     break;
                 case AlarmType.Movement:
-                    melding = "Du har en alarm på becegelse, sjekk systemet ASAP";
+                    melding = "Du har en alarm på bevegelse, sjekk systemet ASAP";
                     break;
                 case AlarmType.Fire:
-                    melding = "Du har en alarm på bevegelse, sjekk systemet ASAP";
+                    melding = "Du har en alarm på brann, sjekk systemet ASAP";
                     break;
                 case AlarmType.Batteri:
                     melding = "Du har en alarm på batteri, sjekk systemet ASAP";

@@ -14,12 +14,13 @@ namespace ProsjektGruppe8
         bool AlarmBit, limitBit;
         public AlarmType Type { get; set; }
         public event EventHandler alarmTriggered;
-
+        private DateTime lastAlarmTime;
         public AlarmWatcher(int lowLimit, int highLimit, AlarmType type)
         {
             LowLimit = lowLimit;
             HighLimit = highLimit;
             Type = type;
+            
         }
         public void updateAlarm(int value)
         {
@@ -29,7 +30,12 @@ namespace ProsjektGruppe8
                 AlarmBit = sendAlarm();
                 if (AlarmBit)
                 {
+                    if ((DateTime.Now-lastAlarmTime).TotalSeconds > 45)
+                    {
+                    lastAlarmTime = DateTime.Now;
                     alarmTriggered(this, new EventArgs());
+
+                    }
                 }
             }
             else

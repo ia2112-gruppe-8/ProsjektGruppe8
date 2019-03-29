@@ -23,9 +23,9 @@ namespace ProsjektGruppe8
         #region Objekter
         BatteryStatus batt;
         dbInterface dbi = new dbInterface();
-        AlarmWatcher temp = new AlarmWatcher(0, 35, AlarmType.Temp);
-        AlarmWatcher move = new AlarmWatcher(0, 1, AlarmType.Movement);
-        AlarmWatcher fire = new AlarmWatcher(0, 35, AlarmType.Temp);
+        AlarmWatcher temp = new AlarmWatcher(0, 30, AlarmType.Temp);
+        AlarmWatcher move = new AlarmWatcher(0, 2, AlarmType.Movement);
+        AlarmWatcher fire = new AlarmWatcher(0, 2, AlarmType.Fire);
         emailHandler mail = new emailHandler();
         SpeechSynthesizer speak = new SpeechSynthesizer();
         ArduinoCom com;
@@ -41,6 +41,7 @@ namespace ProsjektGruppe8
             com.usbTimeout += new EventHandler(usbTimeout);
             temp.alarmTriggered += new EventHandler(tempTrigg);
             fire.alarmTriggered += new EventHandler(fireTrigg);
+            move.alarmTriggered += new EventHandler(moveTrigg);
             initTimers();
 
         }
@@ -60,37 +61,59 @@ namespace ProsjektGruppe8
         {
             tmrUpdate.Stop();
             tmrLog.Stop();
+            dbi.insertAlarms(((int)AlarmType.Com), 0, true, 0, 1);
         }
+        #region AlarmEventHandlers
         private void tempTrigg(object kilde,EventArgs e)
         {
             AlarmMailHandler(temp.Type);
-            speak.Speak("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
+            dbi.insertAlarms(((int)temp.Type), Convert.ToInt32(values[0]), true, temp.LowLimit, temp.HighLimit);
+            speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
             
         }
         private void fireTrigg(object kilde, EventArgs e)
         {
+            AlarmMailHandler(fire.Type);
             dbi.insertAlarms(((int)fire.Type), Convert.ToInt32(values[2]), true, fire.LowLimit, fire.HighLimit);
-            speak.Speak("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
+            speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
         }
-
+        private void moveTrigg(object kilde, EventArgs e)
+        {
+            AlarmMailHandler(move.Type);
+            dbi.insertAlarms(((int)move.Type), Convert.ToInt32(values[1]), true, move.LowLimit, move.HighLimit);
+            speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
+        }
+        #endregion
         private void tmrUpdate_Tick(object sender, EventArgs e)
         {
             batt.indicateBattery();
             values = com.getValues();
+            temp.updateAlarm(Convert.ToInt32(values[0]));
+            move.updateAlarm(Convert.ToInt32(values[1]));
             fire.updateAlarm(Convert.ToInt32(values[2]));
             dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
+            textBox1.Text = values[0];
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
             /*Random random = new Random();
             dbi.logTemp(random.Next(-20,40));*/
-            DataTable dt = dbi.activeAlarmsInDT("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
-            pdfHandler handler = new pdfHandler(dt);
-            handler.CreateDocument(false);
-            mail.SendMailAttatchment("jorgen.sneisen@lf-nett.no", "test", "testc", handler.filename);
+            //DataTable dt = dbi.activeAlarmsInDT("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
+            //pdfHandler handler = new pdfHandler(dt);
+            //handler.CreateDocument(false);
+            //mail.SendMailAttatchment("jorgen.sneisen@lf-nett.no", "test", "testc", handler.filename);
             //AlarmType at = (AlarmType)1;
             //textBox1.Text = at.ToString();
+            
+            /*DateTime dt = DateTime.Today;
+            DateTime date = dt.AddSeconds(20);
+            
+            if ((date-dt).TotalSeconds>21)
+            {
+
+            textBox1.Text = date.Subtract(dt).ToString();
+            }*/
         }
         private void AlarmMailHandler(AlarmType type)
         {
