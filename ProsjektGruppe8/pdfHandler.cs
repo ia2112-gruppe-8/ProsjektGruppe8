@@ -27,10 +27,12 @@ namespace ProsjektGruppe8
             Table table = section.AddTable();
             table.Borders.Width = 0.25;
             table.Rows.LeftIndent = 0;
-            Column columnA = table.AddColumn("7cm");
-            Column columnB = table.AddColumn("3cm");
+            Column columnA = table.AddColumn("3cm");
+            Column columnB = table.AddColumn("7cm");
             Column columnC = table.AddColumn("3cm");
             columnA.Format.Alignment = ParagraphAlignment.Center;
+            columnB.Format.Alignment = ParagraphAlignment.Center;
+            columnC.Format.Alignment = ParagraphAlignment.Center;
             Row row = table.AddRow();
             row.Cells[0].AddParagraph("Alarmtype");
             row.Cells[1].AddParagraph("Dato");
