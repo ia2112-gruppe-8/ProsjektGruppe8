@@ -97,23 +97,7 @@ namespace ProsjektGruppe8
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            /*Random random = new Random();
-            dbi.logTemp(random.Next(-20,40));*/
-            //DataTable dt = dbi.activeAlarmsInDT("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
-            //pdfHandler handler = new pdfHandler(dt);
-            //handler.CreateDocument(false);
-            //mail.SendMailAttatchment("jorgen.sneisen@lf-nett.no", "test", "testc", handler.filename);
-            //AlarmType at = (AlarmType)1;
-            //textBox1.Text = at.ToString();
             
-            /*DateTime dt = DateTime.Today;
-            DateTime date = dt.AddSeconds(20);
-            
-            if ((date-dt).TotalSeconds>21)
-            {
-
-            textBox1.Text = date.Subtract(dt).ToString();
-            }*/
         }
         private void AlarmMailHandler(AlarmType type)
         {
@@ -154,11 +138,7 @@ namespace ProsjektGruppe8
             chrt.Show();
         }
 
-        private void tsmAddSubscriber_Click(object sender, EventArgs e)
-        {
-            AddSubscriberForm addSubscriber = new AddSubscriberForm(dbi);
-            addSubscriber.ShowDialog();
-        }
+        
 
         private void tsmDeleteSubscriber_Click(object sender, EventArgs e)
         {
@@ -181,6 +161,18 @@ namespace ProsjektGruppe8
         {
             createSubscriptionForm csf = new createSubscriptionForm(dbi);
             csf.ShowDialog();
+        }
+
+        private void tsmAlterSubscriber_Click(object sender, EventArgs e)
+        {
+            alterSubscriberForm alterSubscriberForm = new alterSubscriberForm(dbi);
+            alterSubscriberForm.ShowDialog();
+        }
+
+        private void tsmAddSubscriber_Click(object sender, EventArgs e)
+        {
+            AddSubscriberForm addSubscriber = new AddSubscriberForm(dbi);
+            addSubscriber.ShowDialog();
         }
     }
 }

@@ -71,6 +71,12 @@
       <DependentUpon>AddSubscriberForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AlarmWatcher.cs" />
+    <Compile Include="alterSubscriberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alterSubscriberForm.Designer.cs">
+      <DependentUpon>alterSubscriberForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArduinoCom.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="AddSubscriberForm.resx">
       <DependentUpon>AddSubscriberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="alterSubscriberForm.resx">
+      <DependentUpon>alterSubscriberForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="chartForm.resx">
       <DependentUpon>chartForm.cs</DependentUpon>

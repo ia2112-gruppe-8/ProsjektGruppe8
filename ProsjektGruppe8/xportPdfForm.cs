@@ -43,7 +43,7 @@ namespace ProsjektGruppe8
         private void btnXportPdf_Click(object sender, EventArgs e)
         {
             
-            DataTable dt = db.activeAlarmsInDT("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
+            DataTable dt = db.queryToDataTable("SELECT Alarmtype, Tidsrom, [Verdi\\temperatur] FROM Alarmer WHERE[aktiv\\ikke aktiv] = 1 Order by Tidsrom desc");
             pdfHandler handler = new pdfHandler(dt);
             handler.CreateDocument(cbOpenFile.Checked);
             if (cbSendEmail.Checked)

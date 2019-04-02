@@ -45,10 +45,11 @@
             this.kunderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCreateSubscription = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
             this.btnAcknowlege = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tsmCreateSubscription = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAlterSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +175,7 @@
             this.kunderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmAddSubscriber,
             this.tsmDeleteSubscriber,
+            this.tsmAlterSubscriber,
             this.tsmCreateSubscription});
             this.kunderToolStripMenuItem.Name = "kunderToolStripMenuItem";
             this.kunderToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
@@ -182,14 +184,23 @@
             // tsmAddSubscriber
             // 
             this.tsmAddSubscriber.Name = "tsmAddSubscriber";
-            this.tsmAddSubscriber.Size = new System.Drawing.Size(180, 22);
+            this.tsmAddSubscriber.Size = new System.Drawing.Size(181, 22);
             this.tsmAddSubscriber.Text = "Legg til Abbonent";
+            this.tsmAddSubscriber.Click += new System.EventHandler(this.tsmAddSubscriber_Click);
             // 
             // tsmDeleteSubscriber
             // 
             this.tsmDeleteSubscriber.Name = "tsmDeleteSubscriber";
-            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(180, 22);
+            this.tsmDeleteSubscriber.Size = new System.Drawing.Size(181, 22);
             this.tsmDeleteSubscriber.Text = "Slett Abbonent";
+            this.tsmDeleteSubscriber.Click += new System.EventHandler(this.tsmDeleteSubscriber_Click);
+            // 
+            // tsmCreateSubscription
+            // 
+            this.tsmCreateSubscription.Name = "tsmCreateSubscription";
+            this.tsmCreateSubscription.Size = new System.Drawing.Size(181, 22);
+            this.tsmCreateSubscription.Text = "Abboner på alarm";
+            this.tsmCreateSubscription.Click += new System.EventHandler(this.tsmCreateSubscription_Click);
             // 
             // tmrLog
             // 
@@ -214,12 +225,12 @@
             this.textBox1.Size = new System.Drawing.Size(282, 170);
             this.textBox1.TabIndex = 7;
             // 
-            // tsmCreateSubscription
+            // tsmAlterSubscriber
             // 
-            this.tsmCreateSubscription.Name = "tsmCreateSubscription";
-            this.tsmCreateSubscription.Size = new System.Drawing.Size(180, 22);
-            this.tsmCreateSubscription.Text = "Abboner på alarm";
-            this.tsmCreateSubscription.Click += new System.EventHandler(this.tsmCreateSubscription_Click);
+            this.tsmAlterSubscriber.Name = "tsmAlterSubscriber";
+            this.tsmAlterSubscriber.Size = new System.Drawing.Size(181, 22);
+            this.tsmAlterSubscriber.Text = "Endre AbbonentInfo";
+            this.tsmAlterSubscriber.Click += new System.EventHandler(this.tsmAlterSubscriber_Click);
             // 
             // Form1
             // 
@@ -268,6 +279,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;
         private System.Windows.Forms.ToolStripMenuItem tsmDeleteSubscriber;
         private System.Windows.Forms.ToolStripMenuItem tsmCreateSubscription;
+        private System.Windows.Forms.ToolStripMenuItem tsmAlterSubscriber;
     }
 }
 

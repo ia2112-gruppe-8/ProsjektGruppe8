@@ -39,7 +39,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(error.Message);
             }
         }
-        public DataTable activeAlarmsInDT(string query)
+        public DataTable queryToDataTable(string query)
         {
             try
             {
@@ -129,6 +129,35 @@ namespace ProsjektGruppe8
                 sql.Parameters.Add(new SqlParameter("@Mail", email));
                 sql.Parameters.Add(new SqlParameter("@Nummer", phoneNmbr));
                 sql.Parameters.Add(new SqlParameter("@Alarmtype", alarmtype));
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void alterSubscriber(string name, string newEmail, string oldEmail, int phoneNmbr)
+        {
+            
+            try
+            {
+                
+                SqlCommand sql = new SqlCommand("dbo.updtAbbonenter", con);
+                sql.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                sql.Parameters.Add(new SqlParameter("@name", name));
+                sql.Parameters.Add(new SqlParameter("@oldMail", oldEmail));
+                sql.Parameters.Add(new SqlParameter("@newMail", newEmail));
+                if (phoneNmbr == 0)
+                {
+                    sql.Parameters.Add(new SqlParameter("@number", DBNull.Value));
+                }
+                else
+                {
+                sql.Parameters.Add(new SqlParameter("@number", phoneNmbr));
+                }
                 sql.ExecuteNonQuery();
                 con.Close();
             }
