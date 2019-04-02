@@ -26,6 +26,8 @@ namespace ProsjektGruppe8
         AlarmWatcher temp = new AlarmWatcher(0, 30, AlarmType.Temp);
         AlarmWatcher move = new AlarmWatcher(0, 2, AlarmType.Movement);
         AlarmWatcher fire = new AlarmWatcher(0, 2, AlarmType.Fire);
+        AlarmWatcher charge = new AlarmWatcher(25, 100, AlarmType.Batteri);
+        AlarmWatcher pluggedIn = new AlarmWatcher(0, 2, AlarmType.Batteri);
         emailHandler mail = new emailHandler();
         SpeechSynthesizer speak = new SpeechSynthesizer();
         ArduinoCom com;
@@ -42,6 +44,8 @@ namespace ProsjektGruppe8
             temp.alarmTriggered += new EventHandler(tempTrigg);
             fire.alarmTriggered += new EventHandler(fireTrigg);
             move.alarmTriggered += new EventHandler(moveTrigg);
+            charge.alarmTriggered += new EventHandler(chargeTrigg);
+            pluggedIn.alarmTriggered += new EventHandler(pluggedInTrigg);
             initTimers();
 
         }
@@ -81,6 +85,18 @@ namespace ProsjektGruppe8
         {
             AlarmMailHandler(move.Type);
             dbi.insertAlarms(((int)move.Type), Convert.ToInt32(values[1]), true, move.LowLimit, move.HighLimit);
+            speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
+        }
+        private void chargeTrigg(object kilde, EventArgs e)
+        {
+            AlarmMailHandler(charge.Type);
+            dbi.insertAlarms(((int)charge.Type), ((int)SystemInformation.PowerStatus.BatteryLifePercent * 100), true, charge.LowLimit, charge.HighLimit);
+            speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
+        }
+        private void pluggedInTrigg(object kilde, EventArgs e)
+        {
+            AlarmMailHandler(pluggedIn.Type);
+            dbi.insertAlarms(((int)pluggedIn.Type), ((int)SystemInformation.PowerStatus.PowerLineStatus), true, pluggedIn.LowLimit, pluggedIn.HighLimit);
             speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
         }
         #endregion
