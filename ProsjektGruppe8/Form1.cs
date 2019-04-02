@@ -106,12 +106,12 @@ namespace ProsjektGruppe8
             values = com.getValues();
             if (tmrUpdate.Enabled)
             {
-
-            temp.updateAlarm(Convert.ToInt32(values[0]));
-            move.updateAlarm(Convert.ToInt32(values[1]));
-            fire.updateAlarm(Convert.ToInt32(values[2]));
-                
-            dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
+                temp.updateAlarm(Convert.ToInt32(values[0]));
+                move.updateAlarm(Convert.ToInt32(values[1]));
+                fire.updateAlarm(Convert.ToInt32(values[2]));
+                charge.updateAlarm(batt.getBatteryPercent());
+                pluggedIn.updateAlarm(batt.getPowerLineStatusInt());
+                dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
             }
             textBox1.Text = values[0];
         }

@@ -10,6 +10,7 @@ namespace ProsjektGruppe8
 {
     class BatteryStatus
     {
+        
         TextBox text;
         public BatteryStatus(TextBox box)
         {
@@ -48,6 +49,14 @@ namespace ProsjektGruppe8
                 text.ForeColor = Color.White;
             }
             else text.BackColor = Color.Green;
+        }
+        public int getBatteryPercent()
+        {
+            return Convert.ToInt32(SystemInformation.PowerStatus.BatteryLifePercent * 100);
+        }
+        public int getPowerLineStatusInt()
+        {
+            return ((int)SystemInformation.PowerStatus.PowerLineStatus);//Offline = 0, Online = 1;
         }
     }
 }
