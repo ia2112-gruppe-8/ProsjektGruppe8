@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace ProsjektGruppe8
 {
-    public class emailHandler
+    public class emailHandler:IKravInterface
     {
         private string password;
         string senderMail = "ia2112gruppe8@gmail.com";
+        public string Filename { get; set; }
         //string Recipient { get; set; }
 
         public emailHandler()
@@ -45,6 +46,7 @@ namespace ProsjektGruppe8
         }
         public void SendMailAttatchment(string recipient, string subject, string message, string filename)
         {
+            Filename = filename;
             try
             {
                 using (SmtpClient smtp = new SmtpClient())
@@ -57,7 +59,7 @@ namespace ProsjektGruppe8
                     smtp.Credentials = new NetworkCredential(senderMail, password);
                     // send the email
                     MailMessage mail = new MailMessage(senderMail, recipient,subject,message);
-                    mail.Attachments.Add(new Attachment(filename));
+                    mail.Attachments.Add(new Attachment(Filename));
                     smtp.Send(mail);
                 }
             }

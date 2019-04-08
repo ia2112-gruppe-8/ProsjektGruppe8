@@ -99,6 +99,7 @@
     <Compile Include="deleteSubscriberForm.Designer.cs">
       <DependentUpon>deleteSubscriberForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IKravInterface.cs" />
     <Compile Include="pdfHandler.cs" />
     <Compile Include="settingsForm.cs">
       <SubType>Form</SubType>
