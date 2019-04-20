@@ -13,14 +13,14 @@ namespace ProsjektGruppe8
 {
     public class dbInterface
     {
-        string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;
+        string conTest = ConfigurationManager.ConnectionStrings["conProsjekt"].ConnectionString;//Connection stringen
         private static SqlConnection con;
         public dbInterface()
         {
             con = new SqlConnection(conTest);
         }
 
-        public void viewInDataGrid(DataGridView gridView, string query)
+        public void viewInDataGrid(DataGridView gridView, string query)//Metode for å vise noe i en datagridview, du må sende med egen query
         {
             try
             {
@@ -39,7 +39,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(error.Message);
             }
         }
-        public DataTable queryToDataTable(string query)
+        public DataTable queryToDataTable(string query)//Returnerer resultatet fra en spørring til en DataTable
         {
             try
             {
@@ -59,7 +59,7 @@ namespace ProsjektGruppe8
             }
             
         }
-        public void kvitterAlarmer()
+        public void kvitterAlarmer()//Stored procedure for å kvittere alle alarmer
         {
             try
             {
@@ -75,7 +75,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public void logTemp(int temp)
+        public void logTemp(int temp)//Bruker en stored procedure for å logge temperaturen
         {
             try
             {
@@ -94,7 +94,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public void insertAlarms(int type, int value, bool active, int lowLimit, int HighLimit)
+        public void insertAlarms(int type, int value, bool active, int lowLimit, int HighLimit)//Logger alarm
         {
             try
             {
@@ -117,7 +117,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public void addSubscriber(string name, string email,int phoneNmbr,int alarmtype)
+        public void addSubscriber(string name, string email,int phoneNmbr,int alarmtype)//Legger til en abbonent i databasen
         {
             try
             {
@@ -138,7 +138,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public void alterSubscriber(string name, string newEmail, string oldEmail, int phoneNmbr)
+        public void alterSubscriber(string name, string newEmail, string oldEmail, int phoneNmbr)//Endrer dataene til en abbonent i databasen
         {
             
             try
@@ -167,7 +167,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public void createSubscription(string email, int alarmtype)
+        public void createSubscription(string email, int alarmtype)//Lager et abbonement på en alarmtype
         {
             try
             {
@@ -186,7 +186,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public void deleteSubscriber(string email)
+        public void deleteSubscriber(string email)//Sletter en abbonent og abbonementer fra databasen
         {
             try
             {
@@ -204,7 +204,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        static public void LoadTempValuesInChart(Chart chart)
+        static public void LoadTempValuesInChart(Chart chart)//Metode for å laste temp verdiene i Chart formen
         {
             DateTime valueX;
             int valueY;
@@ -234,7 +234,7 @@ namespace ProsjektGruppe8
             }
             
         }
-        public void namesToCombobox(ComboBox box)
+        public void namesToCombobox(ComboBox box)//Laster alle emailer fra databasen til en combobox
         {
             try
             {
@@ -256,7 +256,7 @@ namespace ProsjektGruppe8
                 MessageBox.Show(ex.Message);
             }
         }
-        public List<string> getEmail(int alarmType)
+        public List<string> getEmail(int alarmType)//Henter mailene til alle som abbonerer på en alarmtype og returnerer en LIST 
         {
             List<string> email = new List<string>();
             try

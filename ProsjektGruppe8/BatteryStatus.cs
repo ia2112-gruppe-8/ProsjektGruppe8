@@ -21,7 +21,7 @@ namespace ProsjektGruppe8
         {
             string chargingStatus;
 
-            switch (SystemInformation.PowerStatus.PowerLineStatus)
+            switch (SystemInformation.PowerStatus.PowerLineStatus)//En property som finnes i .NET biblioteket som forteller oss om pcen er plugget inn
             {
                 case PowerLineStatus.Offline:
                     chargingStatus = "Lader IKKE";
@@ -37,12 +37,12 @@ namespace ProsjektGruppe8
         }
         public void indicateBattery()
         {
-            int batteryPercent = Convert.ToInt32(SystemInformation.PowerStatus.BatteryLifePercent * 100);
+            int batteryPercent = Convert.ToInt32(SystemInformation.PowerStatus.BatteryLifePercent * 100);//Bruker en property i .NET som gir oss en verdi på batterinivået i prosent
             string chargingStatus = getChargingStatus();
 
             text.Text = $"{batteryPercent}% {chargingStatus}";
 
-            if (batteryPercent <= 25)
+            if (batteryPercent <= 25)//Gjør tekstboksen rød hvis batterinivået er under 25%
             {
 
                 text.BackColor = Color.Red;

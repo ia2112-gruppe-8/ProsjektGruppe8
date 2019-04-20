@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ProsjektGruppe8
 {
-    class ArduinoCom:SerialPort
+    class ArduinoCom:SerialPort//Arver Seriell port klassen
     {
         public event EventHandler usbTimeout;
         ComboBox cbo;
@@ -20,17 +20,17 @@ namespace ProsjektGruppe8
             WriteTimeout = 500;//Timeout for å skrive til seriellporten
             ReadTimeout = 500;//Timeout for å lese til seriellporten
         }
-        public string[] getValues()
+        public string[] getValues()//Ber om verdier, mottar og laster det inn i et array
         {
             string[] values = new string[3];
             string message;
-            if (IsOpen)
+            if (IsOpen)//Hvis kommunikasjonsporten er åpen
             {
                 try
                 {
-                    Write("1");
-                    message = ReadLine();
-                    values = message.Split(';');
+                    Write("1");//be om veriene
+                    message = ReadLine();//Last det i en string
+                    values = message.Split(';');//Splitt opp stringen til et array
                 }
                 catch (Exception ex)
                 {
@@ -49,7 +49,7 @@ namespace ProsjektGruppe8
             }
             return values;
         }
-        public void LoadPortsInComboBox(ComboBox cbo)
+        public void LoadPortsInComboBox(ComboBox cbo)//Laster tilgjengelige seriellporter til en combobox
         {
             string[] portNames = GetPortNames();
             cbo.Items.Clear();
@@ -57,7 +57,7 @@ namespace ProsjektGruppe8
             {
                 cbo.Items.Add(port);
             }
-            cbo.SelectedIndex = 0;
+            cbo.SelectedIndex = 0;//Setter dropdown menyen til den første 
         }
         public void OpenCom()
         {
@@ -73,11 +73,11 @@ namespace ProsjektGruppe8
                     MessageBox.Show(ex.Message);
                 }
             }
-            else
+            else//Hvis ikke porten er lukket
             {
-                Close();
+                Close();//Lukk porten
                 PortName = cbo.Text;
-                Open();
+                Open();//åpne igjen
             }
         }
     }
