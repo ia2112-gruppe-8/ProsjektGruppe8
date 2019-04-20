@@ -14,7 +14,7 @@ namespace ProsjektGruppe8
         {
 
         }
-        static public string ReadFromFile(string filename)
+        static public string ReadFromFile(string filename)//Lese en tekst fra en string. Brukes til passordet
         {
             string text = "";
             try
@@ -30,7 +30,7 @@ namespace ProsjektGruppe8
             }
             return text;
         }
-        static public void WriteIntervalToFile(int interval, string filename)
+        static public void WriteIntervalToFile(int interval, string filename)//Brukes til å skrive lese og loggeintervallene 
         {
             try
             {

@@ -13,16 +13,16 @@ namespace ProsjektGruppe8
     public class emailHandler:IKravInterface
     {
         private string password;
-        string senderMail = "ia2112gruppe8@gmail.com";
+        string senderMail = "ia2112gruppe8@gmail.com";//mailen til gruppe
         public string Filename { get; set; }
         //string Recipient { get; set; }
 
         public emailHandler()
         {
-            password = FileHandler.ReadFromFile("passord.txt");
+            password = FileHandler.ReadFromFile("passord.txt");//Laster passord fra en tekstfil
             //Recipient = recipient;
         }
-        public void SendMail(string recipient,string subject,string message)
+        public void SendMail(string recipient,string subject,string message)//Sender en mail uten vedlegg
         {
             try
             {
@@ -44,7 +44,7 @@ namespace ProsjektGruppe8
             }
             
         }
-        public void SendMailAttatchment(string recipient, string subject, string message, string filename)
+        public void SendMailAttatchment(string recipient, string subject, string message, string filename)//Sender en mail med vedlegg
         {
             Filename = filename;
             try
@@ -69,7 +69,7 @@ namespace ProsjektGruppe8
             }
 
         }
-        public void SendAlarmMail(string recipient, AlarmType type)
+        public void SendAlarmMail(string recipient, AlarmType type)//Send alarm mailen med en tekst for hver alarm
         {
             string melding;
             switch (type)

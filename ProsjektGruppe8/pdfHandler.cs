@@ -21,7 +21,7 @@ namespace ProsjektGruppe8
             dt = dataTable;
 
         }
-        public void CreateDocument(bool openDoc)
+        public void CreateDocument(bool openDoc)//Lager et PDF DOKUMENT med MigraDoc biblioteket
         {
             Document doc = new Document();
             Section section = doc.AddSection();
@@ -39,14 +39,14 @@ namespace ProsjektGruppe8
             row.Cells[1].AddParagraph("Dato");
             row.Cells[2].AddParagraph("Verdi");
             
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)//en løkke som itererer igjennom alarm datatable og skriver alle aktive alarmer i et rutenett
             {
                 row = table.AddRow();
                 for (int j = 0; j < dt.Columns.Count; j++)
                 {
-                    if (j == 0)
+                    if (j == 0)//Hvis det er første kolonne
                     {
-                        AlarmType at = (AlarmType)Convert.ToInt32(dt.Rows[i][j]);
+                        AlarmType at = (AlarmType)Convert.ToInt32(dt.Rows[i][j]);//henter alarmtype med casting
                         row.Cells[j].AddParagraph(at.ToString());
                     }
                     else
@@ -60,12 +60,12 @@ namespace ProsjektGruppe8
             PdfDocumentRenderer renderer = new PdfDocumentRenderer(false);
             renderer.Document = doc;
             renderer.RenderDocument();
-            filename = $"Alarmer{DateTime.Today.Day}_{DateTime.Today.TimeOfDay.Hours}.pdf";
+            filename = $"Alarmer{DateTime.Today.Day}_{DateTime.Today.TimeOfDay.Hours}.pdf";//Lager et filnavn
             
             renderer.PdfDocument.Save(filename);
             if (openDoc)
             {
-            Process.Start(filename);
+            Process.Start(filename);//åpner dokumentet
 
             }
         }
