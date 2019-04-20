@@ -10,11 +10,12 @@ namespace ProsjektGruppe8
     {
         public int LowLimit { get; set; }
         public int HighLimit { get; set; }
+        public AlarmType Type { get; set; }
         private bool AlarmLastScan;
         bool AlarmBit, limitBit;
-        public AlarmType Type { get; set; }
         public event EventHandler alarmTriggered;
         private DateTime lastAlarmTime;
+
         public AlarmWatcher(int lowLimit, int highLimit, AlarmType type)
         {
             LowLimit = lowLimit;
@@ -26,11 +27,11 @@ namespace ProsjektGruppe8
         {
             if (checkLimits(value))
             {
-                limitBit = true;
-                AlarmBit = sendAlarm();
+                limitBit = true;//Verdien er utenfor alarmgrenser
+                AlarmBit = sendAlarm();//Hvis rising edge detection er false så sender vi ikke alarm
                 if (AlarmBit)
                 {
-                    if ((DateTime.Now-lastAlarmTime).TotalSeconds > 45)
+                    if ((DateTime.Now-lastAlarmTime).TotalSeconds > 45)//Liten tidsforsinkelse for å fjerne flere alarmer ved "hoppende" alarmverdi
                     {
                     lastAlarmTime = DateTime.Now;
                     alarmTriggered(this, new EventArgs());
@@ -50,13 +51,13 @@ namespace ProsjektGruppe8
         {
             return (value <= LowLimit || value >= HighLimit);
         }
-        private bool sendAlarm()
+        private bool sendAlarm()// Rising edge detection
         {
-            return (limitBit == true && AlarmLastScan == false);
+            return (limitBit == true && AlarmLastScan == false);//Hvis verdien er utenfor alarmgrensene og de var innenfor grensene siste scan returner true
         }
 
     }
-    public enum AlarmType
+    public enum AlarmType//Alarmtype enum
     {
         Temp,
         Movement,

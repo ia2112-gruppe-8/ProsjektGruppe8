@@ -118,7 +118,7 @@ namespace ProsjektGruppe8
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            
+            speak.SpeakAsync("ALARM! ALARM! AN ALARM HAS BEEN TRIGGERED!");
         }
         private void AlarmMailHandler(AlarmType type)
         {
