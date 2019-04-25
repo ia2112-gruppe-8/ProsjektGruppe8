@@ -170,6 +170,7 @@ namespace ProsjektGruppe8
         private void btnAcknowlege_Click(object sender, EventArgs e)
         {
             dbi.kvitterAlarmer();
+            dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
         }
 
         private void tsmCreatePdf_Click(object sender, EventArgs e)
@@ -195,5 +196,7 @@ namespace ProsjektGruppe8
             AddSubscriberForm addSubscriber = new AddSubscriberForm(dbi);
             addSubscriber.ShowDialog();
         }
+
+      
     }
 }
