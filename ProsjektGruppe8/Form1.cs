@@ -23,9 +23,9 @@ namespace ProsjektGruppe8
         #region Objekter
         BatteryStatus batt;
         dbInterface dbi = new dbInterface();
-        AlarmWatcher temp = new AlarmWatcher(0, 30, AlarmType.Temp);
-        AlarmWatcher move = new AlarmWatcher(0, 2, AlarmType.Movement);
-        AlarmWatcher fire = new AlarmWatcher(0, 2, AlarmType.Fire);
+        AlarmWatcher temp = new AlarmWatcher(0, 45, AlarmType.Temp);
+        AlarmWatcher move = new AlarmWatcher(-1, 1, AlarmType.Movement);
+        AlarmWatcher fire = new AlarmWatcher(-1, 1, AlarmType.Fire);
         AlarmWatcher charge = new AlarmWatcher(25, 100, AlarmType.Batteri);
         AlarmWatcher pluggedIn = new AlarmWatcher(0, 2, AlarmType.Batteri);
         emailHandler mail = new emailHandler();
@@ -46,6 +46,7 @@ namespace ProsjektGruppe8
             move.alarmTriggered += new EventHandler(moveTrigg);
             charge.alarmTriggered += new EventHandler(chargeTrigg);
             pluggedIn.alarmTriggered += new EventHandler(pluggedInTrigg);
+            dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
             initTimers();
 
         }
@@ -61,7 +62,7 @@ namespace ProsjektGruppe8
                 com.Close();
             }
         }
-        private void usbTimeout(object kilde, EventArgs e)
+        private void usbTimeout(object kilde, EventArgs e)//Event handler for usb timeout
         {
             tmrUpdate.Stop();
             tmrLog.Stop();
