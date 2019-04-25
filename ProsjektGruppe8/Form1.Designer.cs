@@ -34,7 +34,6 @@
             this.dgvActiveAlarms = new System.Windows.Forms.DataGridView();
             this.cboComPorts = new System.Windows.Forms.ComboBox();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmShowChart = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,11 +44,10 @@
             this.kunderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAddSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDeleteSubscriber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAlterSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCreateSubscription = new System.Windows.Forms.ToolStripMenuItem();
             this.tmrLog = new System.Windows.Forms.Timer(this.components);
             this.btnAcknowlege = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tsmAlterSubscriber = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActiveAlarms)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -101,16 +99,6 @@
             this.btnConnect.Text = "Koble Til";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(242, 306);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 4;
-            this.btnTest.Text = "button1";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // menuStrip1
             // 
@@ -195,6 +183,13 @@
             this.tsmDeleteSubscriber.Text = "Slett Abbonent";
             this.tsmDeleteSubscriber.Click += new System.EventHandler(this.tsmDeleteSubscriber_Click);
             // 
+            // tsmAlterSubscriber
+            // 
+            this.tsmAlterSubscriber.Name = "tsmAlterSubscriber";
+            this.tsmAlterSubscriber.Size = new System.Drawing.Size(181, 22);
+            this.tsmAlterSubscriber.Text = "Endre AbbonentInfo";
+            this.tsmAlterSubscriber.Click += new System.EventHandler(this.tsmAlterSubscriber_Click);
+            // 
             // tsmCreateSubscription
             // 
             this.tsmCreateSubscription.Name = "tsmCreateSubscription";
@@ -217,29 +212,12 @@
             this.btnAcknowlege.UseVisualStyleBackColor = true;
             this.btnAcknowlege.Click += new System.EventHandler(this.btnAcknowlege_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(342, 306);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 170);
-            this.textBox1.TabIndex = 7;
-            // 
-            // tsmAlterSubscriber
-            // 
-            this.tsmAlterSubscriber.Name = "tsmAlterSubscriber";
-            this.tsmAlterSubscriber.Size = new System.Drawing.Size(181, 22);
-            this.tsmAlterSubscriber.Text = "Endre AbbonentInfo";
-            this.tsmAlterSubscriber.Click += new System.EventHandler(this.tsmAlterSubscriber_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 511);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAcknowlege);
-            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.cboComPorts);
             this.Controls.Add(this.dgvActiveAlarms);
@@ -264,7 +242,6 @@
         private System.Windows.Forms.DataGridView dgvActiveAlarms;
         private System.Windows.Forms.ComboBox cboComPorts;
         private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem instillingerToolStripMenuItem;
@@ -273,7 +250,6 @@
         private System.Windows.Forms.Timer tmrLog;
         private System.Windows.Forms.ToolStripMenuItem tsmShowChart;
         private System.Windows.Forms.Button btnAcknowlege;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem tsmCreatePdf;
         private System.Windows.Forms.ToolStripMenuItem kunderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmAddSubscriber;

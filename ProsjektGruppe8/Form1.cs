@@ -113,7 +113,6 @@ namespace ProsjektGruppe8
                 pluggedIn.updateAlarm(batt.getPowerLineStatusInt());
                 dbi.viewInDataGrid(dgvActiveAlarms, "SELECT * FROM Alarmer ORDER BY[aktiv\\ikke aktiv] DESC, Tidsrom DESC");
             }
-            textBox1.Text = values[0];
         }
 
         private void btnTest_Click(object sender, EventArgs e)
