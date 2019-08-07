@@ -12,7 +12,7 @@ namespace ProsjektGruppe8
     {
         
         TextBox text;
-        public BatteryStatus(TextBox box)
+        public BatteryStatus(TextBox box)//test comment for git
         {
             text = box;
         }
